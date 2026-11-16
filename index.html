@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sabeen Shariff Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Anton&family=Caveat:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: a zine scrapbook. Crumpled paper, taped polaroids, label stickers, poster type and hand-scribbled notes. Palette: Live and Fall from Sabeen’s board. */
+  /* palette: Live and Fall (dome granate, swamp, teal, alice blue) */
+  --paper:#E1EFFA; --card:#F7FBFE; --ink:#0B1C1E;
+  --primary:#D9400F; --accent:#22709A; --band:#6CABCB; --second:#FF5321; --pop:#FF5321;
+  --tint1:#FFE0D5; --tint2:#CBE3F2; --deep:#0B1C1E;
+  --tape1:rgba(255,83,33,.55); --tape2:rgba(108,171,203,.7); --tape3:rgba(11,28,30,.3);
+  --display:"Bagel Fat One", "Arial Black", system-ui, sans-serif;
+  --poster:"Anton", "Impact", "Arial Narrow", sans-serif;
+  --hand:"Caveat", "Comic Sans MS", cursive;
+  --body:"DM Sans", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;color:var(--ink);font:400 17px/1.55 var(--body);-webkit-font-smoothing:antialiased;
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.27 0 0 0 0 0.22 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(115deg,rgba(0,0,0,.03) 0 12%,transparent 12% 40%,rgba(255,255,255,.35) 40% 44%,transparent 44% 70%,rgba(0,0,0,.025) 70% 100%);}
+img,video{max-width:100%;display:block}
+a{color:var(--primary);text-underline-offset:3px;text-decoration-thickness:2px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.mono{font-family:var(--body);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+
+/* label sticker */
+.label{display:inline-block;background:var(--ink);color:var(--card);font:700 15px/1 var(--body);letter-spacing:.04em;padding:7px 10px 6px;transform:rotate(-1.5deg)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px solid var(--ink)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+nav .name{font-family:var(--hand);font-weight:700;font-size:30px;text-decoration:none;color:var(--accent);line-height:1}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav a.l{font:700 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);text-decoration:none;white-space:nowrap;padding:4px 6px}
+nav a.l:hover{background:var(--band)}
+
+/* hero */
+.hero{padding:56px 0 64px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:center}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,10vw,140px);line-height:.86;color:var(--primary);letter-spacing:-0.01em}
+.hero h1 em{display:block;font-style:normal;font-family:var(--hand);font-weight:700;color:var(--accent);font-size:.62em;transform:rotate(-4deg) translateX(.2em);margin-top:.05em}
+.hero .lede{margin-top:28px;font-size:20px;line-height:1.5;max-width:40ch}
+.hero .lede::first-line{font-weight:700}
+.hero .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.tag{background:var(--card);border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font:700 12px var(--body);letter-spacing:.06em;text-transform:uppercase;box-shadow:3px 3px 0 var(--ink)}
+.tag:nth-child(2){background:var(--band)}.tag:nth-child(3){background:var(--tint2)}.tag:nth-child(4){background:var(--tint2)}
+.hero figure{margin:0;position:relative;transform:rotate(3deg);background:#FFFDF8;padding:12px 12px 52px;box-shadow:0 14px 30px rgba(58,26,22,.22)}
+.hero figure::before{content:"";position:absolute;top:-16px;left:50%;width:120px;height:32px;transform:translateX(-50%) rotate(-4deg);background:var(--tape1)}
+.hero figure img{width:100%;height:auto;aspect-ratio:auto}
+.hero figure figcaption{position:absolute;bottom:10px;left:0;right:0;font-family:var(--hand);font-size:30px;text-align:center;color:var(--primary)}
+.star{position:absolute;pointer-events:none}
+
+/* index */
+.index{padding:44px 0 52px;background:var(--band);color:var(--ink);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.index .ttl{font-family:var(--poster);font-size:48px;line-height:1;text-transform:uppercase;margin-bottom:22px;color:var(--primary)}
+.index ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.index li a{display:grid;grid-template-columns:48px 1fr;gap:10px;padding:16px;background:var(--card);color:var(--ink);text-decoration:none;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:transform .15s}
+.index li:nth-child(odd) a{transform:rotate(-.8deg)}.index li:nth-child(even) a{transform:rotate(.7deg)}
+.index li a:hover{transform:rotate(0) translateY(-3px)}
+.index li span{font-family:var(--display);font-size:26px;color:var(--accent);line-height:1}
+.index li b{font-family:var(--poster);font-weight:400;font-size:24px;line-height:1.05;text-transform:uppercase;display:block;letter-spacing:.01em}
+.index li small{font-size:14.5px;line-height:1.35;display:block;margin-top:4px}
+
+/* case */
+.case{padding:88px 0;position:relative}
+.case + .case{border-top:2px dashed rgba(58,26,22,.35)}
+.case-head{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-bottom:44px}
+.num{font-family:var(--display);font-size:120px;line-height:.8;color:var(--pop);-webkit-text-stroke:3px var(--ink);transform:rotate(-6deg)}
+.case-head .kicker{display:inline-block;background:var(--ink);color:var(--card);padding:6px 10px 5px;transform:rotate(-1deg);margin-bottom:14px}
+.case-head h2{font-family:var(--poster);font-weight:400;font-size:clamp(44px,6.4vw,84px);line-height:.95;text-transform:uppercase;color:var(--primary);letter-spacing:.005em}
+.case-head h2 em{font-family:var(--hand);font-style:normal;font-weight:700;text-transform:none;color:var(--accent);font-size:.78em;letter-spacing:0;display:inline-block;transform:rotate(-3deg)}
+.case-body{display:grid;grid-template-columns:300px 1fr;gap:52px;align-items:start}
+.case-body>*{min-width:0}
+.facts{position:sticky;top:90px;display:grid;gap:16px;background:var(--card);padding:22px 20px;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--second);transform:rotate(-1deg)}
+.facts::before{content:"";position:absolute;top:-14px;left:28px;width:90px;height:26px;background:var(--tape2);transform:rotate(-6deg)}
+.facts{position:relative}
+@media (min-width:901px){.facts{position:sticky}}
+.facts dt{color:var(--accent)}
+.facts dd{margin:4px 0 0;font-size:15.5px;line-height:1.45}
+.prose{display:grid;gap:18px;max-width:68ch}
+.prose p{font-size:18px}
+.prose h3{font-family:var(--poster);font-weight:400;font-size:32px;line-height:1;text-transform:uppercase;margin-top:14px}
+.prose h3::after{content:"";display:block;width:90px;height:8px;margin-top:6px;background:var(--accent);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 8'%3E%3Cpath d='M2 5 Q 12 1 22 5 T 42 5 T 62 5 T 88 4' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 8'%3E%3Cpath d='M2 5 Q 12 1 22 5 T 42 5 T 62 5 T 88 4' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat}
+.pull{font-family:var(--hand);font-weight:700;font-size:34px;line-height:1.15;color:var(--primary);transform:rotate(-1.5deg);padding-left:4px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:8px 0}
+.stat{background:var(--card);border:2px solid var(--ink);padding:16px 16px 14px;box-shadow:4px 4px 0 var(--ink)}
+.stat:nth-child(3n+2){background:var(--tint1)}.stat:nth-child(3n+3){background:var(--tint2)}
+.stat b{display:block;font-family:var(--display);font-weight:400;font-size:40px;line-height:1;color:var(--primary);font-variant-numeric:tabular-nums}
+.stats.arch .stat b{font-family:var(--poster);font-size:26px;line-height:1.05;text-transform:uppercase}
+.stat span{display:block;margin-top:8px;font-size:14px;line-height:1.35}
+ul.list{margin:0;padding-left:0;list-style:none;display:grid;gap:10px}
+ul.list li{padding-left:30px;position:relative}
+ul.list li::before{content:"★";position:absolute;left:0;top:-1px;color:var(--accent);font-size:18px}
+
+.gallery{display:grid;gap:22px;margin-top:44px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.shot{margin:0;background:var(--card);padding:8px 8px 10px;box-shadow:0 8px 18px rgba(58,26,22,.18);cursor:zoom-in;position:relative;transition:transform .2s}
+.shot::before{content:"";position:absolute;top:-11px;left:50%;width:70px;height:22px;transform:translateX(-50%) rotate(-3deg);background:var(--tape1);z-index:1}
+.gallery .shot:nth-child(4n+1){transform:rotate(-1.4deg)}
+.gallery .shot:nth-child(4n+2){transform:rotate(1.1deg)}
+.gallery .shot:nth-child(4n+2)::before{background:var(--tape2)}
+.gallery .shot:nth-child(4n+3){transform:rotate(-.6deg)}
+.gallery .shot:nth-child(4n+3)::before{background:var(--tape3)}
+.gallery .shot:nth-child(4n){transform:rotate(1.6deg)}
+.gallery .shot:hover{transform:rotate(0) scale(1.02);z-index:2}
+.shot img{width:100%;object-fit:cover}
+.shot.tall img{aspect-ratio:3/4}
+.shot.wide img{aspect-ratio:16/9;object-fit:contain;background:#fff}
+.shot figcaption{font-family:var(--hand);font-size:22px;line-height:1.1;padding:8px 4px 0;color:var(--ink)}
+.cap{font-family:var(--hand);font-size:22px;margin-top:16px;color:var(--accent)}
+
+/* hat lab */
+.hat-wrap{display:grid;grid-template-columns:1fr 280px;gap:56px;align-items:center}
+.hat-grid{display:grid;grid-template-columns:270px 1fr;gap:40px;align-items:start}
+.hat-grid .facts{position:relative;top:auto}
+.hat-vid{cursor:default;transform:rotate(1.5deg);margin:0}
+.hat-vid video{width:100%;aspect-ratio:9/16;background:#000}
+@media (max-width:900px){.hat-wrap,.hat-grid{grid-template-columns:1fr}.hat-vid{max-width:260px}}
+
+/* casting pods */
+.pods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pod{border:2px solid var(--ink);padding:16px;background:var(--card);box-shadow:4px 4px 0 var(--primary)}
+.pod b{font-family:var(--poster);font-weight:400;font-size:24px;text-transform:uppercase;display:block;line-height:1.05}
+.pod .mono{color:var(--accent);display:block;margin:6px 0 8px}
+.pod p{font-size:15px}
+.sub{margin-top:60px;padding-top:32px;border-top:2px dashed rgba(58,26,22,.3)}
+
+/* cash app: savvy red poster section */
+.bait{background:var(--deep);color:var(--card);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.case.bait + .case{border-top:none}
+.bait .num{color:var(--card)}
+.bait .case-head h2{color:var(--card)}
+.bait .case-head h2 em{color:var(--pop)}
+.bait .facts{color:var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.bait .facts dt{color:var(--accent)}
+.bait .facts a{color:var(--primary)}
+.bait .pull{color:var(--pop)}
+.bait ul.list li::before{color:var(--pop)}
+.bait .shot figcaption{color:var(--ink)}
+.bait .hero-img{margin-top:44px;transform:rotate(-.6deg)}
+.bait .hero-img img{width:100%}
+.bait video{width:100%;aspect-ratio:3/4;object-fit:cover;background:#000}
+
+/* press */
+.press{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.press a{display:block;border:2px solid var(--ink);padding:14px 16px;text-decoration:none;color:var(--ink);background:var(--card);box-shadow:4px 4px 0 var(--ink);transition:transform .15s}
+.press a:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--accent)}
+.press .mono{color:var(--accent);font-size:11.5px}
+.press b{display:block;font-weight:700;font-size:16.5px;line-height:1.3;margin-top:6px}
+
+/* coursework */
+.course{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{border:2px solid var(--ink);background:var(--card);padding:22px;display:grid;gap:10px;align-content:start;box-shadow:5px 5px 0 var(--ink)}
+.card:nth-child(1){transform:rotate(-.6deg)}.card:nth-child(4){transform:rotate(.6deg)}
+.card h3{font-family:var(--poster);font-weight:400;font-size:28px;line-height:1.05;text-transform:uppercase}
+.card .mono{color:var(--accent)}
+.card blockquote{margin:8px 0 0;font-family:var(--hand);font-weight:700;font-size:26px;line-height:1.15;color:var(--primary)}
+.card blockquote cite{display:block;font-family:var(--body);font-style:normal;font-weight:700;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;margin-top:8px}
+
+/* about */
+.about{background:var(--tint1);border-top:2px solid var(--ink)}
+.about .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:56px}
+.about h2{font-family:var(--poster);font-weight:400;text-transform:uppercase;color:var(--primary)}
+.about h2 em{font-family:var(--hand)!important;font-weight:700!important;text-transform:none;color:var(--accent);font-style:normal}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.skills h3{display:inline-block;background:var(--ink);color:var(--card);font:700 14px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:6px 9px 5px;margin-bottom:10px;transform:rotate(-1.5deg)}
+.skills ul{margin:0;padding:0;list-style:none;display:grid;gap:4px;font-size:15.5px}
+.exp li{display:flex;justify-content:space-between;gap:16px;border-top:2px dotted rgba(58,26,22,.4);padding:10px 0;font-size:16px}
+.exp ul{list-style:none;margin:0;padding:0}
+.exp li span{opacity:.75;text-align:right}
+
+footer{background:var(--deep);color:var(--card);padding:80px 0 72px;border-top:2px solid var(--ink);position:relative;overflow:hidden}
+footer h2{font-family:var(--poster);font-weight:400;text-transform:uppercase;font-size:clamp(52px,10vw,150px);line-height:.88;color:var(--pop);-webkit-text-stroke:0}
+footer h2 em{display:block;font-family:var(--hand);font-style:normal;font-weight:700;text-transform:none;color:var(--card);text-shadow:2px 2px 0 var(--ink);font-size:.6em;transform:rotate(-3deg)}
+footer p{margin-top:24px;font-size:20px}
+footer a{color:var(--card);font-weight:700}
+footer .small{font-size:14px;opacity:.85;margin-top:36px}
+
+
+#lb{position:fixed;inset:0;background:rgba(58,26,22,.9);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-height:92%;max-width:100%;background:#fff;padding:8px}
+#lb button{position:absolute;top:16px;right:16px;background:var(--card);border:2px solid var(--ink);font:700 14px var(--body);padding:8px 14px;cursor:pointer}
+
+@media (max-width:1100px){
+  .hero .wrap{grid-template-columns:1fr 280px;gap:36px}
+  .case-body{grid-template-columns:260px 1fr;gap:36px}
+  .hat-wrap{grid-template-columns:1fr 240px;gap:36px}
+  .hat-grid{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  nav .wrap{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:8px;gap:6px}
+  nav ul{width:100%;gap:6px;padding-bottom:4px;scrollbar-width:none}
+  nav ul::-webkit-scrollbar{display:none}
+  .hero{padding:36px 0 48px}
+  .hero .wrap,.case-body,.about .wrap,.hat-wrap{grid-template-columns:minmax(0,1fr)}
+  .hero figure{width:min(280px,80%);margin:20px auto 0}
+  .index ol{grid-template-columns:repeat(2,1fr)}
+  .pods,.course{grid-template-columns:1fr}
+  .g4,.g3{grid-template-columns:repeat(2,1fr)}
+  .case{padding:64px 0}
+  .case-head{grid-template-columns:1fr;gap:10px;margin-bottom:32px}
+  .num{font-size:80px}
+  .facts{transform:none;max-width:520px;top:auto}
+  .case-body>*,.hat-wrap>*,.about .wrap>*{min-width:0}
+  .hat-vid{width:min(280px,80%);margin:8px auto 0}
+  .about .wrap{gap:40px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .hero h1{font-size:clamp(52px,15vw,72px)}
+  .hero .lede{font-size:18px}
+  .index ol{grid-template-columns:1fr}
+  .index .ttl{font-size:38px}
+  .g2,.g3{grid-template-columns:1fr}
+  .g4{grid-template-columns:repeat(2,1fr);gap:16px}
+  .shot figcaption{font-size:18px}
+  .num{font-size:64px}
+  .case-head h2{font-size:clamp(38px,11vw,54px)}
+  .prose p{font-size:17px}
+  .pull{font-size:28px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats.arch{grid-template-columns:1fr}
+  .stat b{font-size:32px}
+  .skills{grid-template-columns:1fr 1fr;gap:18px}
+  .exp li{flex-wrap:wrap;gap:2px 16px}
+  .exp li span{text-align:left}
+  .star{display:none}
+  footer{padding:60px 0 96px}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Sections">
+  <div class="wrap">
+    <a class="name" href="#top">Sabeen Shariff</a>
+    <ul>
+      <li><a class="l" href="#warby">Strategy</a></li>
+      <li><a class="l" href="#casting">Casting</a></li>
+      <li><a class="l" href="#cashapp">Experiential</a></li>
+      <li><a class="l" href="#pushin">Audit</a></li>
+      <li><a class="l" href="#society">Social &amp; PR</a></li>
+      <li><a class="l" href="#hat">Video</a></li>
+      <li><a class="l" href="#course">AI x Marketing</a></li>
+      <li><a class="l" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top"><svg class="star" aria-hidden="true" style="color:var(--second);left:62%;top:8%;width:64px;transform:rotate(-12deg)" viewBox="0 0 100 100"><path d="M50 3 61 37 97 38 68 59 79 95 50 73 21 95 32 59 3 38 39 37Z" fill="currentColor" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/></svg><svg class="star" aria-hidden="true" style="color:var(--pop);left:4%;top:78%;width:44px;transform:rotate(14deg)" viewBox="0 0 100 100"><path d="M50 3 61 37 97 38 68 59 79 95 50 73 21 95 32 59 3 38 39 37Z" fill="currentColor" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/></svg><svg class="star" aria-hidden="true" style="color:var(--band);left:92%;top:82%;width:54px;transform:rotate(8deg)" viewBox="0 0 100 100"><path d="M50 3 61 37 97 38 68 59 79 95 50 73 21 95 32 59 3 38 39 37Z" fill="var(--pop)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/></svg>
+  <div class="wrap">
+    <div>
+      <p style="margin-bottom:22px"><span class="label">hello! · marketing portfolio 2026</span></p>
+      <h1>Hi, my name is <em>Sabeen Shariff</em></h1>
+      <p class="lede">I find the right creators, build the strategy around them, and make the stuff people take home. I’m an influencer marketing intern at Lazy Boy Agency and a Communication Studies student at Northwestern.</p>
+      <div class="tags">
+        <span class="tag">Influencer casting</span>
+        <span class="tag">Campaign strategy</span>
+        <span class="tag">Experiential &amp; merch</span>
+        <span class="tag">Social content</span>
+        <span class="tag">Media outreach</span>
+      </div>
+    </div>
+    <figure>
+      <img src="img/headshot.png" alt="Portrait of Sabeen Shariff" width="800" height="800">
+      <figcaption>that’s me ♡</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="index" aria-label="Work index">
+  <div class="wrap"><p class="ttl">What’s in my bag</p>
+    <ol>
+      <li><a href="#warby"><span>01</span><div><b>Warby Parker</b><small>Creator archetypes for an ambassador pitch</small></div></a></li>
+      <li><a href="#casting"><span>02</span><div><b>Creator casting</b><small>Dr. Squatch × IShowSpeed, Electrolit, Oura</small></div></a></li>
+      <li><a href="#cashapp"><span>03</span><div><b>Cash App × ComplexCon</b><small>Patches, pins, embroidery, mugs, koozies and shades</small></div></a></li>
+      <li><a href="#pushin"><span>04</span><div><b>Pushin’ Forward</b><small>Nonprofit marketing audit</small></div></a></li>
+      <li><a href="#society"><span>05</span><div><b>Hummus Republic &amp; Eggslut</b><small>Social content, campaigns and launch outreach</small></div></a></li>
+      <li><a href="#hat"><span>06</span><div><b>HAT Lab</b><small>Short-form podcast clips for social</small></div></a></li>
+      <li><a href="#course"><span>07</span><div><b>AI x Marketing</b><small>Four practicums checking AI against real data</small></div></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 01 WARBY -->
+<section class="case" id="warby">
+  <div class="wrap">
+    <div class="case-head">
+      <div class="num" aria-hidden="true">01</div>
+      <div>
+        <p class="mono kicker">Lazy Boy Agency · Influencer marketing intern · Pitch</p>
+        <h2>Warby Parker <em>Intelligent Eyewear</em> ambassadors</h2>
+      </div>
+    </div>
+    <div class="case-body">
+      <dl class="facts">
+        <div><dt class="mono">Client</dt><dd>Warby Parker (pitch)</dd></div>
+        <div><dt class="mono">My part</dt><dd>The influencer archetype section: 3 archetypes, each with an example casting shortlist</dd></div>
+        <div><dt class="mono">The ask</dt><dd>A 12-month ambassador program for the launch of Warby Parker’s smart glasses</dd></div>
+      </dl>
+      <div class="prose">
+        <p>The brief was a year-long ambassador roster for camera-equipped smart glasses. Big reach alone wouldn’t carry a 12-month program, so I defined who the roster should be built from. Each archetype is a reason someone would actually wear camera glasses every day, and each comes with a real casting shortlist.</p>
+        <div class="stats arch">
+          <div class="stat"><b>Community Builders</b><span>Obsessed experts (trainspotters, bakers, golfers, mechanics) who can film hands-free without breaking the moment.</span></div>
+          <div class="stat"><b>Innovation Translators</b><span>Early adopters with taste who explain new tech to audiences that trust them to separate hype from useful.</span></div>
+          <div class="stat"><b>The New Professional</b><span>Founders and freelancers whose days are back-to-back calls, where hands-free actually solves a problem.</span></div>
+        </div>
+        <p class="pull">Each archetype has a “Who are they?” and a “Why them?”, so the client can see why each creator fits the product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 CASTING -->
+<section class="case" id="casting">
+  <div class="wrap">
+    <div class="case-head">
+      <div class="num" aria-hidden="true">02</div>
+      <div>
+        <p class="mono kicker">Lazy Boy Agency · Influencer marketing intern · Casting</p>
+        <h2>Creator casting <em>for three brands</em></h2>
+      </div>
+    </div>
+    <div class="case-body">
+      <dl class="facts">
+        <div><dt class="mono">Brands</dt><dd>Dr. Squatch × IShowSpeed, Electrolit, Oura Ring</dd></div>
+        <div><dt class="mono">My part</dt><dd>Casting support: sourcing creators, writing a rationale for each pick, and building the lists the team pitched to the client</dd></div>
+        <div><dt class="mono">Across campaigns</dt><dd>300+ influencers sourced and vetted, with 90% forwarded to clients and 85% outreach conversion</dd></div>
+      </dl>
+      <div class="prose">
+        <h3>Dr. Squatch × IShowSpeed</h3>
+        <p>A multi-week challenge campaign built around IShowSpeed. I sourced mid and micro creators across four markets who would actually attempt a challenge on camera, including comedy creators, IRL streamers, trick-shot accounts, side-quest creators and a block of treasure hunters and geoguessers. Every name went in with a one-line rationale.</p>
+        <div class="stats">
+          <div class="stat"><b>218</b><span>creators I sourced, each with a rationale</span></div>
+          <div class="stat"><b>78</b><span>approved by Dr. Squatch, 74% of the creators it reviewed</span></div>
+          <div class="stat"><b>10</b><span>booked, most posting in 5 to 8 of the campaign’s 8 weeks</span></div>
+          <div class="stat"><b>51M+</b><span>combined Instagram and TikTok followers across my list</span></div>
+        </div>
+        <p>By market, my list was 77 US, 43 Australia, 40 UK and 28 Canada creators. The booked creators were dependable repeat posters, and several filled UK and Canada slots, where good mid-tier talent is harder to find. My strongest picks were 20k–200k challenge and comedy creators.</p>
+      </div>
+    </div>
+
+    <div class="sub case-body">
+      <div></div>
+      <div class="prose">
+        <h3>Electrolit</h3>
+        <p>The brief asked for creators under 1M, about half in the 100k–500k range, a few bigger names and the rest under 100k. I built three casting pods, each tied to a different reason to hydrate.</p>
+        <div class="stats">
+          <div class="stat"><b>41</b><span>creators across three pods</span></div>
+          <div class="stat"><b>12.7M</b><span>combined Instagram and TikTok followers</span></div>
+          <div class="stat"><b>16</b><span>in the 100k–500k range, plus 6 bigger names</span></div>
+          <div class="stat"><b>19</b><span>rising creators under 100k</span></div>
+        </div>
+        <div class="pods">
+          <div class="pod"><b>Austin City Limits</b><span class="mono">12 creators · Austin</span><p>Music, lifestyle and fashion creators for festival survival and heat recovery.</p></div>
+          <div class="pod"><b>Lost Lands</b><span class="mono">13 creators · Ohio</span><p>EDM, rave and travel vloggers for multi-day festival endurance, plus a local DJ on the lineup.</p></div>
+          <div class="pod"><b>Hydration Education</b><span class="mono">16 creators</span><p>Dietitians, nutritionists, trainers and wellness coaches teaching pre- and post-workout recovery.</p></div>
+        </div>
+        <h3>Oura Ring</h3>
+        <p>A creator seeding program for the Oura Ring 5 launch, run across nine markets. Creators got a sizing kit first, then their ring. I approved creator selections for the program.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 CASH APP -->
+<section class="case bait" id="cashapp">
+  <div class="wrap">
+    <div class="case-head">
+      <div class="num" aria-hidden="true">03</div>
+      <div>
+        <p class="mono kicker">Experiential · ComplexCon</p>
+        <h2>Cash App’s <em>Bait House</em></h2>
+      </div>
+    </div>
+    <div class="case-body">
+      <dl class="facts">
+        <div><dt class="mono">Client</dt><dd>Cash App at ComplexCon</dd></div>
+        <div><dt class="mono">My part</dt><dd>Sourced the custom and vintage patches and pins, the shirt and vest embroidery, the custom diner mugs, the fish coolers and koozies, and the sunglasses, and managed merch logistics through event day</dd></div>
+        <div><dt class="mono">The concept</dt><dd>A lakeside bait-and-tackle shop, “Home of Cash App’s finest fishing &amp; recreation,” complete with a dock, a pond and free BTC</dd></div>
+        <div><dt class="mono">Watch</dt><dd><a href="https://www.instagram.com/p/DeDtJvIG7Vb/?img_index=1">See the post on Instagram</a></dd></div>
+      </dl>
+      <div class="prose">
+        <p>Everything had to look like it had been sitting in a real lakeside tackle shop for years, while still being something a guest would want to take home. These are the pieces I sourced:</p>
+        <ul class="list">
+          <li><b>Custom and vintage patches and pins</b>, like “Support Your Local Worm Store,” “Go Offline” and “Hooked on Fishing”</li>
+          <li><b>Shirt and vest embroidery</b></li>
+          <li><b>Custom diner mugs</b> for Lightning Lake</li>
+          <li><b>Fish coolers and koozies</b></li>
+          <li><b>Sunglasses</b> for the shop’s sunglasses wall</li>
+        </ul>
+        <p class="pull">Half custom, half vintage finds, so the shop felt lived in.</p>
+      </div>
+    </div>
+    <figure class="hero-img shot" style="margin:40px 0 0"><img src="img/cc-hero.jpg" alt="The Cash App Bait House booth at ComplexCon, with a dock, pond and a FREE BTC sign"></figure>
+    <div class="gallery g4">
+      <figure class="shot tall"><img src="img/cc-3515.jpg" alt="Bucket of custom and vintage patches" loading="lazy"><figcaption>Custom &amp; vintage patches</figcaption></figure>
+      <figure class="shot tall"><img src="img/cc-3526.jpg" alt="Custom Lightning Lake diner mug" loading="lazy"><figcaption>Custom diner mug</figcaption></figure>
+      <figure class="shot tall"><img src="img/cc-3491.jpg" alt="Shelves of diner mugs above a cooler with fish koozies" loading="lazy"><figcaption>Mugs, cooler &amp; fish koozies</figcaption></figure>
+      <figure class="shot tall"><img src="img/cc-3489.jpg" alt="Sunglasses wall in the shop" loading="lazy"><figcaption>The sunglasses wall</figcaption></figure>
+      <figure class="shot tall"><img src="img/cc-3513.jpg" alt="Mounted fish wearing sunglasses" loading="lazy"><figcaption>Even the fish got shades</figcaption></figure>
+      <figure class="shot tall" style="cursor:default"><video src="img/cc-walkthrough.mp4" controls muted playsinline preload="metadata" aria-label="Walkthrough video of the Bait House shop"></video><figcaption>Shop walkthrough</figcaption></figure>
+      <figure class="shot tall"><img src="img/cc-3506.jpg" alt="Embroidered shirt and fishing vest" loading="lazy"><figcaption>Shirt &amp; vest embroidery</figcaption></figure>
+      <figure class="shot tall"><img src="img/cc-3527.jpg" alt="Sabeen in a Bait House cap" loading="lazy"><figcaption>Me, fully merched</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PUSHIN FORWARD -->
+<section class="case" id="pushin">
+  <div class="wrap">
+    <div class="case-head">
+      <div class="num" aria-hidden="true">04</div>
+      <div>
+        <p class="mono kicker">Northwestern · Nonprofit Management · Marketing strategy consultant</p>
+        <h2>Pushin’ Forward: <em>no clear path to give</em></h2>
+      </div>
+    </div>
+    <div class="case-body">
+      <dl class="facts">
+        <div><dt class="mono">Client</dt><dd>Pushin’ Forward, an Inglewood, CA nonprofit running free youth skate programs, expanding to Chicago</dd></div>
+        <div><dt class="mono">My part</dt><dd>Ran the full-channel marketing audit, delivered 7 preliminary recommendations, and led content ideation for donors and parents</dd></div>
+        <div><dt class="mono">Bottom line</dt><dd>There is no clear path to give or to sign up</dd></div>
+      </dl>
+      <div class="prose">
+        <p>I audited all eight of the organization’s channels against its two audiences. Donors and sponsors want proof of impact and a specific ask. Parents want safety, convenience, and to know who the coaches are. The channels weren’t delivering either.</p>
+        <div class="stats">
+          <div class="stat"><b>28.5K</b><span>followers on the founder’s Instagram, about 4× the org account’s 6,415</span></div>
+          <div class="stat"><b>1</b><span>post on the org’s Instagram in all of 2026</span></div>
+          <div class="stat"><b>140.9K</b><span>views on a top TikTok from an account with 1,170 followers</span></div>
+          <div class="stat"><b>4</b><span>different places to donate, each with a different ask</span></div>
+        </div>
+        <h3>What I recommended</h3>
+        <ul class="list">
+          <li><b>One donate button</b> on the website, featuring the $394,000 skatepark campaign</li>
+          <li><b>Restart the org’s channels</b>, co-posted with the founder so both audiences see them</li>
+          <li><b>A real path for parents:</b> an online sign-up with the waiver, plus a parent page in English and Spanish</li>
+          <li><b>One job per channel:</b> Instagram for proof, TikTok for reach, LinkedIn for sponsors, text for enrolled parents</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gallery g3">
+      <figure class="shot wide"><img src="img/pf-17.jpg" alt="Two primary audiences slide" loading="lazy"></figure>
+      <figure class="shot wide"><img src="img/pf-18.jpg" alt="Channel summary table" loading="lazy"></figure>
+      <figure class="shot wide"><img src="img/pf-19.jpg" alt="The numbers slide" loading="lazy"></figure>
+      <figure class="shot wide"><img src="img/pf-20.jpg" alt="Strengths and opportunities slide" loading="lazy"></figure>
+      <figure class="shot wide"><img src="img/pf-21.jpg" alt="Emerging marketing recommendations slide" loading="lazy"></figure>
+      <figure class="shot wide"><img src="img/pf-22.jpg" alt="Jobs per channel slide" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 05 SOCIETY UNLOCKED -->
+<section class="case" id="society">
+  <div class="wrap">
+    <div class="case-head">
+      <div class="num" aria-hidden="true">05</div>
+      <div>
+        <p class="mono kicker">Society Unlocked · Marketing intern · Summer 2026</p>
+        <h2>Hummus Republic <em>&amp;</em> Eggslut Beltline</h2>
+      </div>
+    </div>
+    <div class="case-body">
+      <dl class="facts">
+        <div><dt class="mono">Agency</dt><dd>Society Unlocked</dd></div>
+        <div><dt class="mono">Tools</dt><dd>Feast (campaigns &amp; analytics), Bevyl (video), Mustard (influencer database), HeyOrca (scheduling), Meta Ads</dd></div>
+      </dl>
+      <div class="prose">
+        <div class="stats">
+          <div class="stat"><b>+33%</b><span>Instagram growth for a client from my organic and Meta ad strategy</span></div>
+          <div class="stat"><b>~50K</b><span>cross-platform impressions on a ~$700 budget, in two months</span></div>
+          <div class="stat"><b>30+</b><span>media contacts reached for the Eggslut Beltline opening</span></div>
+        </div>
+        <h3>Hummus Republic: social content and campaigns</h3>
+        <p>I made short-form video for Hummus Republic across platforms and built promotional campaigns in Feast, including buy-one-get-one pipelines, then tracked how they performed with Feast’s analytics.</p>
+        <h3>Eggslut Beltline: influencer and media outreach</h3>
+        <p>For the opening of Eggslut’s second Atlanta location, I built and organized the influencer list, put together a media contact list and reached out to journalists. Coverage of the opening included:</p>
+        <div class="press">
+          <a href="https://www.theinfatuation.com/atlanta/guides/exciting-restaurant-openings-atlanta"><span class="mono">The Infatuation</span><b>Atlanta’s Most Exciting Winter Restaurant Openings</b></a>
+          <a href="https://www.theinfatuation.com/atlanta/reviews/eggslut-beltline"><span class="mono">The Infatuation</span><b>Eggslut, Beltline</b></a>
+          <a href="https://uk.style.yahoo.com/eggslut-open-second-atlanta-location-215441760.html"><span class="mono">Parade via Yahoo</span><b>Eggslut to Open Second Atlanta Location on the Beltline</b></a>
+          <a href="https://patch.com/georgia/atlanta/new-egg-eatery-crack-ga-restaurant-scene"><span class="mono">Patch</span><b>New Egg Eatery To ‘Crack’ Into GA Restaurant Scene</b></a>
+          <a href="https://secretatlanta.co/eggslut-krog-street-district/"><span class="mono">Secret Atlanta</span><b>L.A.’s cult-favorite Eggslut is opening on the Beltline</b></a>
+          <a href="https://roughdraftatlanta.com/2025/09/26/eggslut-headed-to-krog-district/"><span class="mono">Rough Draft Atlanta</span><b>Eggslut headed to Krog District</b></a>
+          <a href="https://atlanta.urbanize.city/post/krog-district-new-restaurants-retailers-beltline"><span class="mono">Urbanize Atlanta</span><b>Krog District announces wave of new retailers off Beltline</b></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 HAT LAB -->
+<section class="case" id="hat">
+  <div class="wrap hat-wrap">
+    <div>
+    <div class="case-head">
+      <div class="num" aria-hidden="true">06</div>
+      <div>
+        <p class="mono kicker">HAT Lab, Northwestern · Research assistant</p>
+        <h2>Podcast clips <em>for social</em></h2>
+      </div>
+    </div>
+    <div class="hat-grid">
+      <dl class="facts">
+        <div><dt class="mono">Project</dt><dd>A six-episode podcast on Black athletes and protest</dd></div>
+        <div><dt class="mono">My part</dt><dd>Editing in Premiere Pro, narrative development, and short-form clips for social</dd></div>
+      </dl>
+      <div class="prose">
+        <p>I cut full episodes into vertical clips that hold up on their own: find the strongest moment, tighten it, and caption it word by word so it works with the sound off.</p>
+        <p>This one pulls a discussion about the WNBA’s response to Black Lives Matter.</p>
+        <p class="pull">The whole argument, in 43 seconds.</p>
+      </div>
+    </div>
+    </div>
+    <figure class="shot hat-vid"><video src="img/hat-clip.mp4" poster="img/hat-poster.jpg" controls playsinline preload="metadata" aria-label="HAT Lab podcast clip about the WNBA"></video><figcaption>Episode 4 clip, edited by me</figcaption></figure>
+  </div>
+</section>
+
+<!-- 07 COURSEWORK -->
+<section class="case" id="course">
+  <div class="wrap">
+    <div class="case-head">
+      <div class="num" aria-hidden="true">07</div>
+      <div>
+        <p class="mono kicker">Northwestern · Comm St 261 · AI-engaged marketing practicums</p>
+        <h2>Fact-checking <em>the machine</em></h2>
+      </div>
+    </div>
+    <div class="prose" style="margin-bottom:28px">
+      <p>Four assignments where I put AI tools on real marketing work, then checked every claim against the actual data. The point was to find where the output looked right but wasn’t.</p>
+    </div>
+    <div class="course">
+      <article class="card">
+        <span class="mono">Creative prompting</span>
+        <h3>Nestable Instagram campaign</h3>
+        <p>Gave Claude Design and ChatGPT identical minimal and structured prompts for a meal-prep box for people living alone, verified the audience stats, and critiqued the outputs on readability, accessibility and whether the message showed what makes the product different.</p>
+        <blockquote>“You do a very thorough job evaluating both outputs and thinking beyond whether the visuals simply look good.”<cite>Yeha Kim, instructor</cite></blockquote>
+      </article>
+      <article class="card">
+        <span class="mono">Social audit</span>
+        <h3>Scrub Daddy platform comparison</h3>
+        <p>Spot-checked ChatGPT’s audit of Scrub Daddy’s Instagram, TikTok and YouTube. It had missed 10 of 13 TikToks, counted Instagram from a website embed, and called YouTube inactive when long-form uploads were still going up.</p>
+        <blockquote>“You identify specific gaps in ChatGPT’s audit and use your own observations to challenge its conclusions.”<cite>Yeha Kim, instructor</cite></blockquote>
+      </article>
+      <article class="card">
+        <span class="mono">Audience targeting</span>
+        <h3>Verve Cold Brew segmentation</h3>
+        <p>Reviewed ChatGPT’s segment recommendations from a 303-person survey and tested whether the data actually supported them, flagging where small differences between groups weren’t strong enough to drive a budget call.</p>
+        <blockquote>“You went beyond checking the AI’s numbers to question whether its recommendations were actually supported by the data.”<cite>Yeha Kim, instructor</cite></blockquote>
+      </article>
+      <article class="card">
+        <span class="mono">PR writing</span>
+        <h3>MSI CES press release</h3>
+        <p>Took an AI-drafted press release, verified each claim against sources, separated invented specs from confirmed features, and rewrote it as an accurate final release with a documented sources list.</p>
+        <blockquote>“You examined the AI-generated claims thoroughly… and clearly documented the changes you made.”<cite>Yeha Kim, instructor</cite></blockquote>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="case about" id="about">
+  <div class="wrap">
+    <div>
+      <p style="margin-bottom:14px"><span class="label">before marketing, design</span></p>
+      <h2 style="font-size:clamp(38px,5vw,62px);line-height:.98">I started as a designer, <em style="font-family:var(--serif);font-weight:400">and I still think like one.</em></h2>
+      <p style="margin-top:20px;max-width:58ch;font-size:18px">Editorial and social design for STITCH Magazine, campaigns for the UNITY Fashion Show (300+ attendees, a 7K-impression Valentine’s campaign), marketing for Seesaw Theatre’s sensory-based shows, and my own brand, Lowkey SABS. That background is why my casting decks, merch and audits come out polished.</p>
+      <div class="gallery g2" style="margin-top:28px">
+        <figure class="shot wide"><img src="img/old-07.jpg" alt="Magazine spreads designed for STITCH" loading="lazy"><figcaption>Magazine spreads</figcaption></figure>
+        <figure class="shot wide"><img src="img/old-06.jpg" alt="Client web and brand work" loading="lazy"><figcaption>Client web &amp; brand work</figcaption></figure>
+        <figure class="shot wide"><img src="img/old-09.jpg" alt="Illustration and art work" loading="lazy"><figcaption>Illustration &amp; art</figcaption></figure>
+        <figure class="shot wide"><img src="img/old-08.jpg" alt="More of my stuff" loading="lazy"><figcaption>More of my stuff</figcaption></figure>
+      </div>
+    </div>
+    <div style="display:grid;gap:36px;align-content:start">
+      <div class="skills">
+        <div><h3>Marketing</h3><ul><li>Influencer casting &amp; outreach</li><li>Campaign concepts</li><li>Social strategy &amp; calendars</li><li>Media lists &amp; PR</li><li>Trend research &amp; analytics</li></ul></div>
+        <div><h3>Design</h3><ul><li>Adobe Ps, Ai, Id</li><li>Figma, Canva, Procreate</li><li>Short-form video, CapCut</li><li>Editorial &amp; brand design</li><li>UI/UX mockups</li></ul></div>
+        <div><h3>Platforms</h3><ul><li>Meta Ads Manager</li><li>Instagram &amp; TikTok Analytics</li><li>Feast, Bevyl, Mustard, HeyOrca</li><li>Premiere Pro, ChatGPT, Claude</li></ul></div>
+        <div><h3>Languages</h3><ul><li>English (fluent)</li><li>Spanish (conversational)</li><li>Urdu (beginner)</li></ul></div>
+      </div>
+      <div class="exp">
+        <p class="mono" style="color:var(--accent);margin-bottom:6px">Experience</p>
+        <ul>
+          <li><b>Lazy Boy Agency</b><span>Influencer marketing intern · 2026–now</span></li>
+          <li><b>Society Unlocked</b><span>Marketing intern · Summer 2026</span></li>
+          <li><b>HAT Lab, Northwestern</b><span>Research assistant · podcast &amp; video</span></li>
+          <li><b>Seesaw Theatre</b><span>Marketing director</span></li>
+          <li><b>UNITY Fashion Show</b><span>Marketing &amp; social</span></li>
+          <li><b>STITCH Magazine</b><span>Designer</span></li>
+          <li><b>Lowkey SABS</b><span>Founder &amp; brand creator</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact"><svg class="star" aria-hidden="true" style="color:var(--second);left:80%;top:14%;width:90px;transform:rotate(10deg)" viewBox="0 0 100 100"><path d="M50 3 61 37 97 38 68 59 79 95 50 73 21 95 32 59 3 38 39 37Z" fill="currentColor" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/></svg><svg class="star" aria-hidden="true" style="color:var(--pop);left:88%;top:58%;width:50px;transform:rotate(-14deg)" viewBox="0 0 100 100"><path d="M50 3 61 37 97 38 68 59 79 95 50 73 21 95 32 59 3 38 39 37Z" fill="var(--pop)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/></svg>
+  <div class="wrap">
+    <h2>Contact??? <em>let’s make something</em></h2>
+    <p><a href="mailto:sabeenkshariff@gmail.com">sabeenkshariff@gmail.com</a> · <a href="https://www.linkedin.com/in/sabeenshariff">linkedin.com/in/sabeenshariff</a></p>
+    <p style="font-size:16px;opacity:.85;margin-top:10px">Evanston, IL · B.S. Communication Studies, minor in Spanish, Northwestern University</p>
+    <p class="small">Client dashboards and fees are left out. Campaign results are summarized.</p>
+  </div>
+</footer>
+
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged image"><button type="button" id="lbclose">Close</button><img alt=""></div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'),im=lb.querySelector('img');
+  document.querySelectorAll('.shot img').forEach(function(i){
+    i.addEventListener('click',function(){im.src=i.src;im.alt=i.alt;lb.classList.add('on');});
+  });
+  function close(){lb.classList.remove('on');}
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+</body>
+</html>
